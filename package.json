@@ -3,19 +3,22 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --project example",
+    "build": "ng build --project matCurrencyField",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@aipeel/mat-currency-field": "file:dist/mat-currency-field/aipeel-mat-currency-field-0.0.1.tgz",
     "@angular/animations": "~10.0.0",
+    "@angular/cdk": "^10.1.2",
     "@angular/common": "~10.0.0",
     "@angular/compiler": "~10.0.0",
     "@angular/core": "~10.0.0",
     "@angular/forms": "~10.0.0",
+    "@angular/material": "^10.1.2",
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
@@ -24,6 +27,8 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1000.5",
+    "@angular-devkit/build-ng-packagr": "~0.1000.5",
     "@angular/cli": "~10.0.0",
     "@angular/compiler-cli": "~10.0.0",
     "@types/node": "^12.11.1",
@@ -37,6 +42,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^10.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

@@ -1,0 +1,13 @@
+{
+  "name": "@aipeel/mat-currency-field",
+  "version": "0.0.1",
+  "description": "Angular Material based currency form field",
+  "peerDependencies": {
+    "@angular/common": "^10.0.6",
+    "@angular/core": "^10.0.6"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "keywords": ["angular","material","currency","form","formfields","mat-form-field"]
+}

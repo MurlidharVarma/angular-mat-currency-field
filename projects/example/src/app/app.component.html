@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Example: mat-currency-field</h2>
+  <form [formGroup]="frm">
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <input matInput formControlName="name" placeholder="enter here"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Currency in CAD</mat-label>
+      <mat-currency-field formControlName="currency" placeholder="Enter in CAD" currencyCode="CAD"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currency.hasError('pattern')">Invalid Format</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Currency in INR</mat-label>
+      <mat-currency-field formControlName="currency2" placeholder="Enter in INR" currencyCode="INR"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currency.hasError('pattern')">Invalid Format</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Default Currency</mat-label>
+      <mat-currency-field formControlName="currency3" placeholder="Default Currency"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currency2.hasError('pattern')">Invalid Format</mat-error>
+    </mat-form-field>
+    <hr>
+    <br>
+    <pre>{{ frm.value | json}}</pre>
+  </form>
+</div>

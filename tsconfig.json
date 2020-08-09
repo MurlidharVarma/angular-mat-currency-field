@@ -6,5 +6,18 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/mat-currency-field/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/mat-currency-field/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/example/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/example/tsconfig.spec.json"
+    }
+]
 }
