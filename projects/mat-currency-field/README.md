@@ -2,13 +2,29 @@
 
 Angular Material based currency field. Works with material form field.
 
-![Demo](demo.gif)
+![Demo](https://murlidharvarma.github.io/angular-mat-currency-field/projects/mat-currency-field/demo.gif)
 
 ## Installation
 ```
 npm install @aiplee/mat-currency-field --save
 ```
 
+### Import the module
+```
+import { MatCurrencyFieldModule } from '@aipeel/mat-currency-field';
+....
+
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...
+    MatCurrencyFieldModule
+    ...
+  ],
+  providers: [...],
+})
+export class AppModule { }
+```
 ## Usage
 <pre>
     &lt;mat-form-field&gt;
