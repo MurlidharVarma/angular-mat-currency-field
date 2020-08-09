@@ -1,24 +1,26 @@
-# MatCurrencyField
+# @aipeel/mat-currency-field
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+Angular Material based currency field. Works with material form field.
 
-## Code scaffolding
+![Demo](demo.gif)
 
-Run `ng generate component component-name --project matCurrencyField` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project matCurrencyField`.
-> Note: Don't forget to add `--project matCurrencyField` or else it will be added to the default project in your `angular.json` file. 
+## Installation
+```
+npm install @aiplee/mat-currency-field --save
+```
 
-## Build
+## Usage
+<pre>
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Currency in CAD &lt;\/mat-label&gt;
+      
+     <span style="background: lightblue; font-weight: bold">&lt;mat-currency-field  formControlName="currency" 
+                          placeholder="Enter in CAD" 
+                          currencyCode="CAD"&gt;
+     &lt;/mat-currency-field&gt;</span>
 
-Run `ng build matCurrencyField` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build matCurrencyField`, go to the dist folder `cd dist/mat-currency-field` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test matCurrencyField` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+      &lt;mat-error *ngIf="frm.controls.currency.hasError('pattern')"&gt;
+        Invalid Format
+      &lt;/mat-error&gt;
+    &lt;/mat-form-field&gt;
+</pre>

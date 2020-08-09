@@ -2,17 +2,18 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CurrencyPipe } from '@angular/common';
 import { Component, ElementRef, HostBinding, Input, OnDestroy, Optional, Self } from '@angular/core';
-import { ControlValueAccessor, FormBuilder, FormControl, NgControl, NG_VALIDATORS, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, NgControl, NG_VALIDATORS, Validators } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 
 /**
  * To validate that Currency follows the regex patterm
- * @param c Control Form
  */
-export const currencyValidation = (c: FormControl) => {
-  return Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')(c);
-};
+// tslint:disable-next-line:typedef
+export function currencyValidation(c) {
+  const validation =  Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')(c);
+  return validation;
+}
 
 
 @Component({

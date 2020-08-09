@@ -9,5 +9,11 @@
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "keywords": ["angular","material","currency","form","formfields","mat-form-field"]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MurlidharVarma/angular-mat-currency-field.git"
+  },
+  "keywords": ["angular","material","currency","form","formfields","mat-form-field","npm"],
+  "license": "ISC",
+  "author": "Murlidhar Varma"
 }

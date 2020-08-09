@@ -4,14 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project example",
-    "build": "ng build --project matCurrencyField",
+    "build": "ng build --project matCurrencyField --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "publish": "npm publish --access public"
   },
   "private": true,
   "dependencies": {
-    "@aipeel/mat-currency-field": "file:dist/mat-currency-field/aipeel-mat-currency-field-0.0.1.tgz",
+    "@aipeel/mat-currency-field": "^1.0.0",
     "@angular/animations": "~10.0.0",
     "@angular/cdk": "^10.1.2",
     "@angular/common": "~10.0.0",
