@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
  */
 // tslint:disable-next-line:typedef
 export function currencyValidation(c) {
-  const validation =  Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')(c);
+  const validation =  Validators.pattern('^[-]*[0-9]+(\.[0-9]{1,2})?$')(c);
   return validation;
 }
 
@@ -49,6 +49,7 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
 
   currVal: string;
   curr: string;
+  digits: string;
 
   currCode = 'code';
   isEdit = false;
@@ -79,10 +80,28 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
     return this.currCode;
   }
   set currencyCode(val){
-    if (val && val != null && val.trim().length > 0){
-      this.currCode = `${val.toUpperCase()} `;
-    }else{
+    if (val && val != null) {
+      if (val.trim().length > 0) {
+        this.currCode = `${val.toUpperCase()} `;
+      } else {
+        this.currCode = ' ';
+      }
+    } else {
       this.currCode = 'code';
+    }
+    this.stateChanges.next();
+  }
+
+  // Digits Info
+  @Input()
+  get digitsInfo(): string{
+    return this.digits;
+  }
+  set digitsInfo(val){
+    if (val && val != null && val.trim().length > 0){
+      this.digits = val;
+    } else {
+      this.digits = null;
     }
     this.stateChanges.next();
   }
@@ -95,7 +114,7 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
   set value(val) {
     this.currVal = val ? val : null;
     try {
-      this.curr = this.currencyPipe.transform(` ${parseFloat(val)}`, null, this.currCode);
+      this.curr = this.currencyPipe.transform(` ${parseFloat(val)}`, null, this.currCode, this.digits);
     } catch (err) {
       this.curr = null;
     }

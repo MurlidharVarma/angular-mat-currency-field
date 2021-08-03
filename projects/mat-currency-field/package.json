@@ -1,19 +1,34 @@
 {
   "name": "@aipeel/mat-currency-field",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular Material based currency form field",
+  "scripts": {
+    "lib-chk": "npx ncu",
+    "lib-chk-up": "npx ncu -u"
+  },
   "peerDependencies": {
-    "@angular/common": "^10.0.6",
-    "@angular/core": "^10.0.6"
+    "@angular/common": "^12.1.4",
+    "@angular/core": "^12.1.4"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "npm-check-updates": "11.8.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/MurlidharVarma/angular-mat-currency-field.git"
   },
-  "keywords": ["angular","material","currency","form","formfields","mat-form-field","npm"],
+  "keywords": [
+    "angular",
+    "material",
+    "currency",
+    "form",
+    "formfields",
+    "mat-form-field",
+    "npm"
+  ],
   "license": "ISC",
   "author": "Murlidhar Varma"
 }
