@@ -7,8 +7,8 @@
     "lib-chk-up": "npx ncu -u"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.2",
-    "@angular/core": "^12.2.2"
+    "@angular/common": "^12.2.3",
+    "@angular/core": "^12.2.3"
   },
   "dependencies": {
     "tslib": "^2.3.1"
