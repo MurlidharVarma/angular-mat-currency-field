@@ -1,6 +1,6 @@
 {
   "name": "@aipeel/mat-currency-field",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Angular Material based currency form field",
   "scripts": {
     "lib-chk": "npx ncu",
