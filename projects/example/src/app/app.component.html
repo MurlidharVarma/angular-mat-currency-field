@@ -8,20 +8,30 @@
     <br>
     <mat-form-field>
       <mat-label>Currency in CAD</mat-label>
-      <mat-currency-field formControlName="currency" placeholder="Enter in CAD" currencyCode="CAD"></mat-currency-field>
-      <mat-error *ngIf="frm.controls.currency.hasError('pattern')">Invalid Format</mat-error>
+      <mat-currency-field formControlName="currencyFieldCAD" placeholder="Enter in CAD" currencyCode="CAD"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currencyFieldCAD.hasError('required')">Field is required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Currency in EUR</mat-label>
+      <mat-currency-field formControlName="currencyFieldEuro" placeholder="Enter in EURO" currencyCode="EUR" digitsInfo="1.2-2"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currencyFieldEuro.hasError('pattern')">Invalid Format</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>Currency in INR</mat-label>
-      <mat-currency-field formControlName="currency2" placeholder="Enter in INR" currencyCode="INR"></mat-currency-field>
-      <mat-error *ngIf="frm.controls.currency.hasError('pattern')">Invalid Format</mat-error>
+      <mat-currency-field formControlName="currencyFieldINR" placeholder="Enter in INR" currencyCode="INR" digitsInfo="1.4-6"></mat-currency-field>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Without Currency Code</mat-label>
+      <mat-currency-field formControlName="currencyField" placeholder="Enter Currency Value" currencyCode=" " digitsInfo="1.4-6"></mat-currency-field>
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>Default Currency</mat-label>
-      <mat-currency-field formControlName="currency3" placeholder="Default Currency"></mat-currency-field>
-      <mat-error *ngIf="frm.controls.currency2.hasError('pattern')">Invalid Format</mat-error>
+      <mat-currency-field formControlName="currencyFieldDisabled" placeholder="Default Currency"></mat-currency-field>
+      <mat-error *ngIf="frm.controls.currencyFieldDisabled.hasError('pattern')">Invalid Format</mat-error>
     </mat-form-field>
     <hr>
     <br>

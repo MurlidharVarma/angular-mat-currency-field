@@ -33,6 +33,7 @@ export class AppModule { }
      <span style="background: lightblue; font-weight: bold">&lt;mat-currency-field  formControlName="currency" 
                           placeholder="Enter in CAD" 
                           currencyCode="CAD"&gt;
+                          digitsInfo="1.2-2"&gt;
      &lt;/mat-currency-field&gt;</span>
 
       &lt;mat-error *ngIf="frm.controls.currency.hasError('pattern')"&gt;
