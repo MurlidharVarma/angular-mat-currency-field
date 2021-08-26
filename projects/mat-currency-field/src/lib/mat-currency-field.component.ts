@@ -6,16 +6,6 @@ import { ControlValueAccessor, FormBuilder, NgControl, NG_VALIDATORS, Validators
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 
-/**
- * To validate that Currency follows the regex patterm
- */
-// tslint:disable-next-line:typedef
-export function currencyValidation(c: any): any {
-  const validation =  Validators.pattern('^[-]*[0-9]+(\.[0-9]{1,2})?$')(c);
-  return validation;
-}
-
-
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'mat-currency-field',
@@ -36,11 +26,6 @@ export function currencyValidation(c: any): any {
       provide: MatFormFieldControl,
       useExisting: MatCurrencyFieldComponent
     },
-    {
-      provide: NG_VALIDATORS,
-      useValue: currencyValidation,
-      multi: true
-    }
   ],
 })
 export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl<string>, ControlValueAccessor {

@@ -33,6 +33,7 @@ export class AppModule { }
      <span style="background: lightblue; font-weight: bold">&lt;mat-currency-field  formControlName="currency" 
                           placeholder="Enter in CAD" 
                           currencyCode="CAD"&gt;
+                          digitsInfo="1.2-2"&gt;
      &lt;/mat-currency-field&gt;</span>
 
       &lt;mat-error *ngIf="frm.controls.currency.hasError('pattern')"&gt;
@@ -40,3 +41,10 @@ export class AppModule { }
       &lt;/mat-error&gt;
     &lt;/mat-form-field&gt;
 </pre>
+
+## Logs
+| Version | Change Logs                                                                                                                                                    |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.0.1   | Initial Draft with Angular 10 support                                                                                                                                      |
+| 2.0.0   | Upgraded to Angular 12,  Accept Negative value, Decimal digits format configuration, Currency code as space to show no Currency code                               |
+| 2.0.1   | Remove the 2 decimal places validation from within library. Validation can be applied from Parent form itself. Updated example project to showcase new feature |

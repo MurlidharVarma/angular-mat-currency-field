@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --project example",
     "build": "ng build --project matCurrencyField --configuration production",
+    "link-lib": "npm link @aipeel/mat-currency-field@1.0.1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

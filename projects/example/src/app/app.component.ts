@@ -13,10 +13,12 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder){
     this.frm = this.fb.group({
-      name: [],
-      currency: [{value: 1231, disabled: false}, Validators.required],
-      currency2: [{value: null, disabled: false}],
-      currency3: [{value: 99.99, disabled: true}]
+      name: ["Burger"],
+      currencyFieldCAD: [{value: 1200, disabled: false}, Validators.required],
+      currencyFieldEuro: [{value: 75, disabled: false}, Validators.pattern('^[-]*[0-9]+(\.[0-9]{1,2})?$')],
+      currencyFieldINR: [{value: null, disabled: false}],
+      currencyField: [{value: null, disabled: false}],
+      currencyFieldDisabled: [{value: 99.99, disabled: true}]
     });
 
   }
