@@ -10,8 +10,8 @@ import { Subject } from 'rxjs';
  * To validate that Currency follows the regex patterm
  */
 // tslint:disable-next-line:typedef
-export function currencyValidation(c) {
-  const validation =  Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')(c);
+export function currencyValidation(c: any): any {
+  const validation =  Validators.pattern('^[-]*[0-9]+(\.[0-9]{1,2})?$')(c);
   return validation;
 }
 
@@ -23,7 +23,7 @@ export function currencyValidation(c) {
           <ng-container >
               <input *ngIf="!isEdit && !errorState" (focus)="doFocus()" matInput type="text" [(ngModel)]="curr" [disabled]="disabled" />
               <input *ngIf="(isEdit || errorState)" (blur)="doBlur()" matInput type="text" [(ngModel)]="currVal" (input)="_handleInput()"
-                      [placeholder]="_placeholder" [disabled]="disabled"/>
+                      [placeholder]="_placeholder!" [disabled]="disabled"/>
           </ng-container>
   `,
   styles: [
@@ -41,20 +41,27 @@ export function currencyValidation(c) {
       useValue: currencyValidation,
       multi: true
     }
-  ]
+  ],
 })
 export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl<string>, ControlValueAccessor {
 
   static nextId = 0;
 
-  currVal: string;
-  curr: string;
+  currVal: string | undefined | null;
+  curr: string | undefined | null;
+  digits: string | undefined | null;
 
   currCode = 'code';
   isEdit = false;
 
   stateChanges: Subject<void> = new Subject<void>();
+  // stateChanges: Subject<void>;
+  // stateChanges: Observable<void>;
+
+  // stateChanges = new Subject<void>();
+
   focused: boolean;
+
   controlType?: string;
   autofilled?: boolean;
 
@@ -79,10 +86,28 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
     return this.currCode;
   }
   set currencyCode(val){
-    if (val && val != null && val.trim().length > 0){
-      this.currCode = `${val.toUpperCase()} `;
-    }else{
+    if (val && val != null) {
+      if (val.trim().length > 0) {
+        this.currCode = `${val.toUpperCase()} `;
+      } else {
+        this.currCode = ' ';
+      }
+    } else {
       this.currCode = 'code';
+    }
+    this.stateChanges.next();
+  }
+
+  // Digits Info
+  @Input()
+  get digitsInfo(): string {
+    return this.digits!;
+  }
+  set digitsInfo(val){
+    if (val && val != null && val.trim().length > 0){
+      this.digits = val;
+    } else {
+      this.digits = null;
     }
     this.stateChanges.next();
   }
@@ -90,12 +115,12 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
   // Currency Value as property binding
   @Input()
   get value(): string {
-    return this.currVal;
+    return this.currVal!;
   }
   set value(val) {
     this.currVal = val ? val : null;
     try {
-      this.curr = this.currencyPipe.transform(` ${parseFloat(val)}`, null, this.currCode);
+      this.curr = this.currencyPipe.transform(` ${parseFloat(val)}`, undefined, this.currCode!, this.digits!);
     } catch (err) {
       this.curr = null;
     }
@@ -105,14 +130,14 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
   // Placeholder as property binding
   @Input()
   get placeholder(): string {
-    return this._placeholder;
+    return this._placeholder!;
   }
-  set placeholder(plh) {
-    this._placeholder = plh;
+  set placeholder(value: string) {
+    this._placeholder = value;
     this.stateChanges.next();
   }
-  // tslint:disable-next-line:variable-name
-  protected _placeholder: string;
+  // eslint:disable-next-line:variable-name
+  _placeholder: string | undefined;
 
   // errorState
   @Input()
@@ -128,15 +153,15 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
     this.stateChanges.next();
   }
   // tslint:disable-next-line:variable-name
-  private _errorState: boolean;
+  private _errorState?: boolean;
 
   // Required property binding
   @Input()
-  get required(): boolean{
+  get required(): boolean {
     return this._required;
   }
-  set required(req) {
-    this._required = coerceBooleanProperty(req);
+  set required(value: boolean) {
+    this._required = coerceBooleanProperty(value);
     this.stateChanges.next();
   }
   // tslint:disable-next-line:variable-name
@@ -144,9 +169,12 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
 
   // Disabled property binding
   @Input()
-  get disabled(): boolean { return this._disabled; }
+  get disabled(): boolean {
+    return this._disabled;
+  }
   set disabled(value: boolean) {
     this._disabled = coerceBooleanProperty(value);
+    // this._disabled ? this.parts.disable() : this.parts.enable();
     this.stateChanges.next();
   }
   // tslint:disable-next-line:variable-name
@@ -165,6 +193,8 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
+
+    this.focused = false;
 
     fm.monitor(elRef.nativeElement, true).subscribe(origin => {
 
@@ -215,7 +245,7 @@ export class MatCurrencyFieldComponent implements OnDestroy, MatFormFieldControl
   doFocus(): void {
     this.isEdit = true;
     setTimeout(() => {
-      this.elRef.nativeElement.querySelector('input').focus();
+      this.elRef.nativeElement.querySelector('input')?.focus();
       this.onTouch();
     });
   }
