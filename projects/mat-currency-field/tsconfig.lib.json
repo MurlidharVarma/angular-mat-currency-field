@@ -3,7 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2017",
+    "target": "ES2022",
     "declaration": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
