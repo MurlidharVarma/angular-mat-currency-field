@@ -48,6 +48,7 @@ export class AppModule { }
 | 1.0.1   | Initial Draft with Angular 10 support                                                                                                                                      |
 | 2.0.0   | Upgraded to Angular 12,  Accept Negative value, Decimal digits format configuration, Currency code as space to show no Currency code                               |
 | 2.0.1   | Remove the 2 decimal places validation from within library. Validation can be applied from Parent form itself. Updated example project to showcase new feature |
+| 3.0.0   | Upgrade to Angular 15 |
 
 ## NPM Link
 https://www.npmjs.com/package/@aipeel/mat-currency-field

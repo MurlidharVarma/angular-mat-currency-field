@@ -1,20 +1,20 @@
 {
   "name": "@aipeel/mat-currency-field",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Angular Material based currency form field",
   "scripts": {
     "lib-chk": "npx ncu",
     "lib-chk-up": "npx ncu -u"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.3",
-    "@angular/core": "^12.2.3"
+    "@angular/common": "^15.2.1",
+    "@angular/core": "^15.2.1"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "npm-check-updates": "11.8.3"
+    "npm-check-updates": "16.7.10"
   },
   "repository": {
     "type": "git",
