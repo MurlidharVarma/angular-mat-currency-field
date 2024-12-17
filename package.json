@@ -1,5 +1,5 @@
 {
-  "name": "mrv",
+  "name": "@aipeel/mat-currency-field",
   "version": "3.18.0",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,6 @@
     "lib-chk": "npx ncu",
     "lib-chk-up": "npx ncu -u"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~18.2.9",
     "@angular/cdk": "^18.2.10",
