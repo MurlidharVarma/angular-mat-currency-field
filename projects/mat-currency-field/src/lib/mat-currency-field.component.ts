@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
+  standalone: false,
   selector: 'mat-currency-field',
   template: `
           <ng-container >

@@ -50,6 +50,7 @@ export class AppModule { }
 | 2.0.1   | Remove the 2 decimal places validation from within library. Validation can be applied from Parent form itself. Updated example project to showcase new feature |
 | 3.0.0   | Upgrade to Angular 15 |
 | 3.18.0  | Upgrade to Angular 18 |
+| 3.19.1  | Upgrade to Angular 19 |
 
 ## NPM Link
 https://www.npmjs.com/package/@aipeel/mat-currency-field
